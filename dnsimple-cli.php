@@ -25,7 +25,7 @@ switch( $argv[1] )
 			case 'show':	$r = $d->templates_show( $argv[3] );			break;	# SHOW
 			case 'delete':	$r = $d->templates_delete( $argv[3] );			break;	# DELETE
 			case 'apply':	$r = $d->templates_apply( $argv[3], $argv[4] );		break;	# APPLY
-			
+
 			# ADD
 			case 'add':
 				$r = $d->templates_create( array(
@@ -34,14 +34,14 @@ switch( $argv[1] )
 					'description'	=>	(string) $argv[5]
 				));
 				break;
-				
+
 			# RECORDS
 			case 'records':
 				switch( $argv[3] )
 				{
 					case 'list':	$r = $d->templates_records_list( $argv[4] );		break;	# LIST
 					case 'show':	$r = $d->templates_records_show( $argv[4], $argv[5] );	break;	# SHOW
-					
+
 					# ADD
 					case 'add':
 						$a = array(
@@ -64,7 +64,7 @@ switch( $argv[1] )
 				break;
 		}
 		break;
-	
+
 	# DNS
 	case 'dns':
 		switch( $argv[2] )
@@ -72,7 +72,7 @@ switch( $argv[1] )
 			case 'delete':	$r = $d->dns_delete( $argv[3], $argv[4] );	break;	# DELETE
 			case 'show':	$r = $d->dns_show( $argv[3], $argv[4] );	break;	# SHOW
 			case 'list':	$r = $d->dns_list( $argv[3] );			break;	# LIST
-			
+
 			# UPDATE
 			case 'update':
 				$r = $d->dns_update( $argv[3], $argv[4], array(
@@ -83,7 +83,7 @@ switch( $argv[1] )
 					'ttl'		=>	3600
 				));
 				break;
-			
+
 			# ADD
 			case 'add':
 				$r = $d->dns_create( $argv[3], array(
@@ -94,7 +94,7 @@ switch( $argv[1] )
 					'ttl'		=>	3600
 				));
 				break;
-			
+
 			# DATE
 			case 'date':
 				$r = $d->dns_create( $argv[3], array(
@@ -105,7 +105,7 @@ switch( $argv[1] )
 				break;
 		}
 		break;
-		
+
 	# DOMAINS
 	case 'domains':
 		switch( $argv[2] )
@@ -114,7 +114,7 @@ switch( $argv[1] )
 			case 'delete':	$r = $d->domains_delete( $argv[3] );	break;	# DELETE
 			case 'list':	$r = $d->domains_list();		break;	# LIST
 			case 'show':	$r = $d->domains_show( $argv[3] );	break;	# SHOW
-			
+
 			# FIND
 			case 'find':
 				if( $argv[3] == 'contact' )
@@ -130,7 +130,7 @@ switch( $argv[1] )
 				break;
 		}
 		break;
-	
+
 	# CONTACTS
 	case 'contacts':
 		switch( $argv[2] )
@@ -138,26 +138,26 @@ switch( $argv[1] )
 			case 'list':	$r = $d->contacts_list();		break;	# LIST
 			case 'delete':	$r = $d->contacts_delete( $argv[3] );	break;	# DELETE
 			case 'show':	$r = $d->contacts_show( $argv[3] );	break;	# SHOW
-			
+
 			# FIND
 			case 'find':
 				$field = $argv[4] ? $argv[3] : 'last_name';
 				$keyword = $argv[4] ? $argv[4] : $argv[3];
 				$r = $d->contacts_find_byField( $field, $keyword );
 				break;
-			
+
 			# ADD
 			case 'add':
 				//$r = $d->contacts_create( array() );
 				break;
-			
+
 			# UPDATE
 			case 'update':
 				//$r = $d->contacts_update( $argv[3], array() );
 				break;
 		}
 		break;
-	
+
 	# HELP
 	case 'help';
 	default:
